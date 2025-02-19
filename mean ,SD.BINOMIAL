@@ -1,0 +1,53 @@
+import numpy as np
+population = [4779736,  710231,   6392017,  2915918,  37253956, 5029196,  3574097,  897934]
+murder_rate = [5.7, 5.6, 4.7, 5.6, 4.4, 2.8, 2.4, 5.8]
+population = np.array(population)
+murder_rate = np.array(murder_rate)
+murder_pop = (population*murder_rate)/100000
+mean_pop = np.mean(murder_pop)
+median_pop = np.median(murder_pop)
+variance_pop = np.var(murder_pop)
+
+print("Mean Population:", mean_pop)
+print("Median Population:", median_pop)
+print("Variance in Population:", variance_pop)
+
+
+---------------------------------------------
+
+
+import numpy as np
+
+classes = [(0, 10), (10, 20), (20, 30), (30, 40), (40, 50), (50, 60), (60, 70), (70, 80)]
+frequencies = [5, 10, 20, 40, 30, 20, 10, 5]
+
+midpoints = [(cls[0] + cls[1]) / 2 for cls in classes]
+mean = np.average(midpoints, weights=frequencies)
+squared_deviations = [(x - mean) ** 2 for x in midpoints]
+weighted_squared_deviations = np.multiply(squared_deviations, frequencies)
+variance = np.sum(weighted_squared_deviations) / np.sum(frequencies)
+standard_deviation = np.sqrt(variance)
+cv = (standard_deviation / mean) A
+
+print(f"Mean: {mean}")
+print(f"Standard Deviation (S.D.): {standard_deviation}")
+print(f"Coefficient of Variation (C.V.): {cv}%")
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+import math
+def binomial_probability(n, k, p):
+    return math.comb(n, k) * (p**k) * ((1 - p)**(n - k))
+n, p = 6, 0.25
+prob_4 = binomial_probability(n, 4, p)
+print(f"Probability of exactly 4 successes: {prob_4:.4f}")
+prob_at_least_1 = 1 - binomial_probability(n, 0, p)
+print(f"Probability of at least 1 success: {prob_at_least_1:.4f}")
